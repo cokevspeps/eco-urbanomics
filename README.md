@@ -41,8 +41,8 @@ eco-urbanomics-co2/
 ├── README.md
 └── requirements.txt
 
----
 
+```
 ## 🛠️ How to Use This Project
 
 1. **Clone the repository**
