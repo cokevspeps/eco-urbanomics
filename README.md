@@ -1,6 +1,6 @@
 # Eco-Urbanomics: Vehicle CO2 Emissions & Policy Optimization
 
-**Author:** Khoi Nguyen
+**Author:** Khoi Nguyen   
 **Focus:** Data Science applied to Economics, Public Policy, and Inclusive Green Growth
 
 ---
