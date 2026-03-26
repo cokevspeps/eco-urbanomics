@@ -26,6 +26,11 @@ eco-urbanomics-co2/
 │   ├── raw/                 # Original CO2_Emissions_Canada.csv (7,385 vehicles)
 │   └── processed/           # Cleaned data with engineered features & scaling applied
 │
+├── models/
+│   ├── baseline_rf_clf.pkl
+│   ├── baseline_rf_reg.pkl
+│   └── carbon_predictor_nn.pth
+│
 ├── notebooks/
 │   ├── 1_eda.ipynb                 # Exploratory Data Analysis, class balance, & visual diagnostics
 │   ├── 2_feature_engineering.ipynb # Categorical parsing, frequency encoding, & domain-specific math
