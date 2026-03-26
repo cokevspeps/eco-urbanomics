@@ -1,6 +1,6 @@
 # Eco-Urbanomics: Vehicle CO2 Emissions & Policy Optimization
 
-**Author:** Khoi Nguyen | Foreign Trade University  
+**Author:** Khoi Nguyen
 **Focus:** Data Science applied to Economics, Public Policy, and Inclusive Green Growth
 
 ---
@@ -45,9 +45,10 @@ eco-urbanomics-co2/
 │
 ├── README.md
 └── requirements.txt
-
-
 ```
+
+---
+
 ## 🛠️ How to Use This Project
 
 1. **Clone the repository**
