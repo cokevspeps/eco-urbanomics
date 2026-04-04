@@ -63,5 +63,5 @@ eco-urbanomics-co2/
    conda activate .\.conda
    ```
    ```bash
-   conda install -r requirements.txt
+   pip install -r requirements.txt
    ```
