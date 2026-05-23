@@ -20,29 +20,44 @@ This dual approach ensures the model learns deep, generalized representations of
 ## 📂 Repository Structure
 
 ```text
-eco-urbanomics-co2/
+eco-urbanomics/
 │
 ├── data/
 │   ├── raw/                 # Original CO2_Emissions_Canada.csv (7,385 vehicles)
 │   └── processed/           # Cleaned data with engineered features & scaling applied
 │
-├── models/
+├── models/                  # Saved models & deep learning checkpoints
 │   ├── baseline_rf_clf.pkl
 │   ├── baseline_rf_reg.pkl
-│   └── carbon_predictor_nn.pth
+│   ├── carbon_predictor_nn.pth
+│   ├── carbon_quantile_nn.pth
+│   ├── e85_submodel_nn.pth
+│   ├── e85_submodel_rf_clf.pkl
+│   └── e85_submodel_rf_reg.pkl
 │
-├── notebooks/
+├── notebooks/               # Research notebooks
 │   ├── 1_eda.ipynb                 # Exploratory Data Analysis, class balance, & visual diagnostics
 │   ├── 2_feature_engineering.ipynb # Categorical parsing, frequency encoding, & domain-specific math
 │   ├── 3_baseline.ipynb            # Random Forest baseline (Regression & Classification)
-│   └── 4_deep_learning.ipynb       # PyTorch Dual-Head MLP architecture & threshold tuning
+│   ├── 4_deep_learning.ipynb       # PyTorch Dual-Head MLP architecture & threshold tuning
+│   ├── 5_quantile_regression.ipynb # Quantile regression & pinball loss to fix tail bias
+│   └── 6_green_vehicle_submodel.ipynb # Two-stage fuel router & E85/CNG submodels
+│
+├── src/                     # Modular Production Codebase
+│   ├── __init__.py          # Package marker
+│   ├── config.py            # Global paths, seeds, devices, and variables
+│   ├── features.py          # Data preprocessors and E85 adjusted features
+│   ├── models.py            # PyTorch network architectures (MainMLP, QuantileMLP, E85MLP, PinballLoss)
+│   └── router.py            # Routing logic & E85/CNG models
 │
 ├── outputs/                 
 │   ├── baseline_*.png              # RF feature importance and evaluation plots
 │   ├── eda_*.png                   # Distribution and correlation matrices
 │   ├── nn_*.png                    # Training curves, ROC-AUC, and threshold tuning 
-│   └── nn_predictions_output.csv   # Final model predictions with Emission Risk Scores
+│   └── unified_predictions_output.csv # Final unified prediction router results
 │
+├── predict_unified.py       # End-to-end CLI script for unified routing inference
+├── verify_pipeline.py       # Verification test suite for modular pipeline
 ├── README.md
 └── requirements.txt
 ```
@@ -65,3 +80,16 @@ eco-urbanomics-co2/
    ```bash
    pip install -r requirements.txt
    ```
+
+3. **Verify the Pipeline**
+   Run the automated pipeline test suite to verify the modular feature engineering and neural network model loading:
+   ```bash
+   .\.conda\python.exe verify_pipeline.py
+   ```
+
+4. **Run Unified Inference Router (CLI)**
+   Run predictions on any new dataset using the command line script:
+   ```bash
+   .\.conda\python.exe predict_unified.py --input data/processed/processed_co2_data.csv --output outputs/unified_predictions_output.csv
+   ```
+
